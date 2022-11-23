@@ -1,0 +1,290 @@
+/*
+Coming Template
+http://www.templatemo.com/preview/templatemo_447_coming
+*/
+
+
+body
+	{
+		background: #ffffff;
+		font-family: 'Open Sans', sans-serif;
+		font-weight: bold;
+		font-size: 13px;
+		overflow-x: hidden;
+		height: 100%;
+		margin: 0;
+	}
+p {
+	line-height: 1.6em;
+}
+h2 {
+	text-transform: uppercase;
+}
+/* start col */
+.col-md-3, .col-md-5
+	{
+		padding: 0;
+		margin: 0;
+	}
+/* end col */
+
+/* start element */
+.element
+	{
+		position: relative;
+		top: 15px;
+		height: 60px;
+		padding: 0 60px;
+	}
+/* end element */
+
+/* start preloader */
+.preloader
+	{
+		position: fixed;
+  		top: 0;
+  		left: 0;
+  		width: 100%;
+  		height: 100%;
+  		z-index: 99999;
+  		display: -webkit-flex;
+  		display: -ms-flexbox;
+  		display: flex;
+  		-webkit-flex-flow: row nowrap;
+  		    -ms-flex-flow: row nowrap;
+  		        flex-flow: row nowrap;
+  		-webkit-justify-content: center;
+  		    -ms-flex-pack: center;
+  		        justify-content: center;
+  		-webkit-align-items: center;
+  		    -ms-flex-align: center;
+  		        align-items: center;
+  		background: none repeat scroll 0 0 #fff;
+	}
+.sk-spinner-three-bounce.sk-spinner
+	{
+ 		width: 70px;
+  		text-align: center;
+   }
+.sk-spinner-three-bounce div
+	{
+  		width: 18px;
+  		height: 18px;
+  		background-color: #7AD03A;
+  		border-radius: 100%;
+  		display: inline-block;
+        -webkit-animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
+                animation: sk-threeBounceDelay 1.4s infinite ease-in-out;
+
+  /* Prevent first frame from flickering when animation starts */
+
+          -webkit-animation-fill-mode: both;
+                  animation-fill-mode: both;
+    }
+.sk-spinner-three-bounce .sk-bounce1
+	{
+        -webkit-animation-delay: -0.32s;
+                animation-delay: -0.32s;
+    }
+
+.sk-spinner-three-bounce .sk-bounce2
+	{
+       -webkit-animation-delay: -0.16s;
+               animation-delay: -0.16s;
+    }
+
+@-webkit-keyframes sk-threeBounceDelay {
+  0%, 80%, 100% {
+          -webkit-transform: scale(0);
+                  transform: scale(0); }
+
+  40% {
+          -webkit-transform: scale(1);
+                  transform: scale(1); } }
+
+@keyframes sk-threeBounceDelay {
+  0%, 80%, 100% {
+          -webkit-transform: scale(0);
+                  transform: scale(0); }
+
+  40% {
+          -webkit-transform: scale(1);
+                  transform: scale(1); } }
+/* end preloader */
+
+/* start countdown */
+#countdown
+	{
+		position: fixed;
+  		width: 100%;
+  		height: 100%;
+  		display: -webkit-flex;
+  		display: -ms-flexbox;
+  		display: flex;
+  		background: linear-gradient(90deg, #24292f 10%, #eaeef2 200%);
+  		-webkit-flex-flow: row nowrap;
+  		    -ms-flex-flow: row nowrap;
+  		        flex-flow: row nowrap;
+  		-webkit-justify-content: center;
+  		    -ms-flex-pack: center;
+  		        justify-content: center;
+  		-webkit-align-items: center;
+  		    -ms-flex-align: center;
+  		        align-items: center;
+  		color: #ffffff;
+		text-align: center;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 0 0 100px 0;
+
+	}
+#countdown h1
+	{
+		font-size: 80px;
+		font-weight: 700;
+	}
+#countdown h2
+	{
+		font-weight: bold;
+		font-size: 18px;
+		padding-bottom: 40px;
+	}
+#countdown small
+	{
+		font-size: 80px;
+		color: #000;
+		font-weight: bold;
+	}
+ul.countdown
+	{
+		margin: 0;
+		padding: 0;
+	}
+ul.countdown span
+	{
+		font-size: 40px;
+		text-align: center;
+		display: inline-block;
+	}
+ul.countdown li
+	{
+	border-right: 1px solid #ffffff;
+	font-weight: bold;
+	font-size: 18px;
+	display:inline-block;
+	padding: 0px 40px 0px 40px;
+	}
+ul.countdown li:last-child
+	{
+		border-right: none;
+	}
+ul.countdown li h3
+	{
+		font-size: 18px;
+		font-weight: 300;
+	}
+#countdown .form-control
+	{
+		border: none;
+		border-radius: 0px;
+		box-shadow: none;
+		height: 50px;
+		margin-top: 20px;
+		transition: all 0.4s ease-in-out;
+		text-align: center;
+ 	}
+#countdown input[type="submit"]
+	{
+		background: #7AD03A;
+		color: #ffffff;
+		transition: all 0.3s ease;
+	}
+#countdown input[type="submit"]:hover {
+	background: #417F12;
+}
+/* end countdown */
+
+@media (min-width: 1200px){
+	.container {
+		width: 970px;
+	}
+}
+@media only screen and (max-width: 991px) {
+	.templatemo-feature {
+		margin-bottom: 30px;
+	}
+	.title h2 {
+		padding-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	#countdown {
+		padding: 40px 0;
+	}
+	#countdown input[type="submit"] {
+		margin-top: 0;
+	}
+	#countdown h1, #countdown small {
+		font-size: 60px;
+	}
+	#countdown h2 {
+		font-size: 13px;
+	}
+	ul.countdown li h3 {
+		font-size: 12px;
+	}
+	#countdown {
+		min-height: 580px;
+	}
+	/* .title h2 {
+		padding-bottom: 30px;
+	} */
+}
+
+@media only screen and (max-width: 629px) {
+	ul.countdown li {
+		font-size: 14px;
+		padding: 0 10px;
+	}
+	ul.countdown span {
+		font-size: 20px;
+	}
+}
+
+/* start 360 media */
+@media only screen and ( max-width: 360px ) {
+	#countdown {
+		min-height: 520px;
+	}
+	ul.countdown {
+		margin-bottom: 30px;
+	}
+	ul.countdown li
+		{
+			border-right: 0px;
+			font-weight: bold;
+			font-size: 18px;
+			display:inline-block;
+			padding: 15px;
+		}
+	#countdown .form-control
+		{
+			margin: 0px;
+		}
+}
+/* end 360 media */
+
+/* start 320 media */
+@media only screen and ( max-width: 320px ) {
+	ul.countdown li
+		{
+			font-weight: bold;
+			font-size: 18px;
+			display:inline-block;
+			margin: 0;
+			padding: 4px;
+		}
+}
+/* end 320 media */
