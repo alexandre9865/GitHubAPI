@@ -111,6 +111,7 @@ h2 {
                   transform: scale(1); } }
 /* end preloader */
 
+
 /* start countdown */
 #countdown
 	{
@@ -142,6 +143,11 @@ h2 {
 	{
 		font-size: 80px;
 		font-weight: 700;
+	}
+#countdown h1#try-again
+	{
+		background-color: red;
+		font-size: 35px;
 	}
 #countdown h2
 	{
@@ -330,6 +336,9 @@ table.table-striped tbody tr:nth-of-type(odd) {
 }
 table.table-striped.table-hover tbody tr:hover {
 	background: #f1f1f1;
+}
+thead tr th.orderable{
+	cursor: pointer;
 }
 table.table th i {
 	font-size: 13px;
