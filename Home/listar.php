@@ -20,9 +20,6 @@
                             <h1 class="bounceIn">Repositórios</h1>
                         </a>
                         </div>
-                        <div class="col-sm-8">
-                            <a href="#" class="btn btn-primary"><i class="material-icons">&#xE863;</i> <span>Atualizar Lista</span></a>
-                        </div>
                     </div>
                 </div>
                 <div class="table-filter">
