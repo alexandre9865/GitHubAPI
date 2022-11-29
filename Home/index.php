@@ -35,7 +35,7 @@
 							</span>
 						</h2>
 
-						<form action="indexHandler.php" method="post">
+						<form action="indexHandler.php" onsubmit="mostraLoader()" method="post">
 							<div class="col-md-2 col-sm-2"></div>
 							<div class="col-md-5 col-sm-5">
 								<input type="text" name="usuario" class="form-control" placeholder="Seu repositório">
