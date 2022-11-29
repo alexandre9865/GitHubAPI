@@ -24,9 +24,7 @@
                 </div>
                 <div class="table-filter">
                     <div class="row">
-                        <div class="col-sm-2">
-                        </div>
-                        <div class="col-sm-8 filters">
+                        <div class="col-sm-12 filters">
                             <button type="button" class="btn btn-primary" onclick="buscaRepos('nome_repo', 'asc', true)"><i class="fa fa-search" data-toggle="tooltip" title="Clique para filtrar"></i></button>
                             <div class="filter-group">
                                 <label>Nome</label>
