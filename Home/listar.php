@@ -27,7 +27,7 @@
                         <div class="col-sm-2">
                         </div>
                         <div class="col-sm-8 filters">
-                            <button type="button" class="btn btn-primary" onclick="buscaRepos()"><i class="fa fa-search" data-toggle="tooltip" title="Clique para filtrar"></i></button>
+                            <button type="button" class="btn btn-primary" onclick="buscaRepos('nome_repo', 'asc', true)"><i class="fa fa-search" data-toggle="tooltip" title="Clique para filtrar"></i></button>
                             <div class="filter-group">
                                 <label>Nome</label>
                                 <input id="nome" type="text" class="form-control">
@@ -48,7 +48,7 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th class="orderable" data-name="nome_repo">Nome</th>
+                            <th id="repo_name" class="orderable" data-name="nome_repo">Nome</th>
                             <th class="orderable" data-name="status">Tipo de repositório</th>
                             <th class="orderable" data-name="commit">Último commit </th>
                         </tr>
@@ -71,7 +71,7 @@
                     window.location.href = './index.php?erroRepo'
                 }
 
-                buscaRepos()
+                buscaRepos('nome_repo', 'asc', true)
 
                 $('table.table.table-striped.table-hover thead tr th.orderable').on('click', function(elem, index){
                     if($(this).find("#seta.fa-caret-up").length) {
@@ -87,15 +87,15 @@
                         $(this).append('<i id="seta" style="font-size:22px; float:right" class="fa fa-caret-down"></i>');
                         buscaRepos($(this).data('name'), "asc")
                     }
-                    console.log(this)
-                    console.log(elem)
-                    console.log(index)
                 });
             });
 
-            function buscaRepos(ordemCampo = "nome_repo", ordemTipo = "asc"){
+            function buscaRepos(ordemCampo = "nome_repo", ordemTipo = "asc", newSearch = false){
 
-
+                if(newSearch){
+                    $("#seta").remove()
+                    $('#repo_name').append('<i id="seta" style="font-size:22px; float:right" class="fa fa-caret-down"></i>');
+                }
 
                 $.ajax({
                     type: "POST",
@@ -110,7 +110,6 @@
                     dataType: "json",
                     async: false,
                     success: function(resultado) {
-                        console.log(resultado)
                         if(resultado.success){
                             $('table.table.table-striped.table-hover tbody').html('');
                             resultado.dados.forEach(function(currentValue, index, arr){
@@ -130,7 +129,7 @@
                 }else{
                     statusRepo = "Arquivado";
                 }
-                if(repositorio.data_ultimo_commit==='00/00/0000'){
+                if(repositorio.data_ultimo_commit===null){
                     repositorio.data_ultimo_commit = "Nunca feito";
                 }
                 $("<tr>", { text: "Hej" }).appendTo("#contentl1");

@@ -43,11 +43,11 @@ class Crud extends Database
 		$key = array_keys($arr);
 		$val = array_values($arr);
 		$sql .= implode("`, `", $key);
-		$sql .= "`) VALUES ('";
-		$sql .= implode("', '", $val);
-		$sql .= "')";
+		$sql .= "`) VALUES (";
+		$sql .= join(', ', array_map(function ($value) { return $value === 'null' ? 'NULL' : "'$value'"; }, $val));
+		$sql .= ")";
 
-		$sql1="SELECT MAX( id ) FROM  `$tbl`";
+		$sql1="SELECT MAX( id_repositorio ) FROM  `$tbl`";
 		try {
 			$stmt = $this->conn->prepare($sql);
 			$stmt->execute();
@@ -55,24 +55,6 @@ class Crud extends Database
 			$stmt2->execute();
 			$rows = $stmt2->fetchAll(); // assuming $result == true
 			return $rows[0][0];
-		} catch (PDOException $e) {
-			return 'Error: ' . $e->getMessage();
-		}
-	}
-
-	function update($tbl, $arr, $cond) {
-		$sql = "UPDATE `$tbl` SET ";
-		$fld = array();
-		foreach ($arr as $k => $v) {
-			$fld[] = "`$k` = '$v'";
-		}
-		$sql .= implode(", ", $fld);
-		$sql .= " WHERE " . $cond;
-
-		try {
-			$stmt = $this->conn->prepare($sql);
-			$stmt->execute();
-			return $stmt->rowCount(); // 1
 		} catch (PDOException $e) {
 			return 'Error: ' . $e->getMessage();
 		}

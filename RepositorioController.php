@@ -6,17 +6,19 @@ class RepositorioController {
     private $usuario;
     private $gitApi;
     private $crud;
+    private $rootFolder;
 
     function __construct(){
         $this->gitApi = new GithubApi();
         $this->crud = new Crud();
+        $this->rootFolder = explode('/', dirname($_SERVER['PHP_SELF']))[1];
     }
 
     function redirecionaErro(){
-        header('Location: /GitAPI/Home/index.php?erroRepo');
+        header("Location: /{$this->rootFolder}/Home/index.php?erroRepo");
     }
     function redirecionaListagem(){
-        header('Location: /GitAPI/Home/listar.php?usuario='.$this->usuario);
+        header("Location: /{$this->rootFolder}/Home/listar.php?usuario=".$this->usuario);
     }
 
     function submitProcess($postArray) {
@@ -76,8 +78,8 @@ class RepositorioController {
         $this->crud->insert('repositorio',[
             'usuario' => $this->usuario,
             'nome_repo' => $dados['name'],
-            'archivado' => $dados['archived'],
-            'data_ultimo_commit' => $dados['data_ultimo_commit']
+            'archivado' => empty($dados['archived']) ? 0 : $dados['archived'],
+            'data_ultimo_commit' => empty($dados['data_ultimo_commit']) ? 'NULL' : rtrim($dados['data_ultimo_commit'], 'Z')
         ]);
     }
 
